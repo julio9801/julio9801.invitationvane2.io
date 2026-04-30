@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis XV Años | Vanessa</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --dorado: #c5a059;
+            --rosa-suave: #e198b2;
+            --texto: #444;
+            --fondo: #fcfaf8;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Tarjeta Principal */
+        .invitacion {
+            background-color: var(--fondo);
+            background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+            width: 100%;
+            max-width: 500px;
+            margin: 20px;
+            padding: 80px 40px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+            text-align: center;
+            box-sizing: border-box;
+            border: 1px solid #eee;
+        }
+
+        /* Decoración Floral - Ahora buscará tu archivo local */
+        .flor {
+            position: absolute;
+            width: 280px;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .flor-top {
+            top: -50px;
+            left: -50px;
+        }
+        .flor-bottom {
+            bottom: -50px;
+            right: -50px;
+            transform: rotate(180deg);
+        }
+
+        /* Marco sutil */
+        .inner-border {
+            position: absolute;
+            top: 25px; bottom: 25px; left: 25px; right: 25px;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .contenido { position: relative; z-index: 3; }
+
+        h1 { 
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300; 
+            letter-spacing: 6px; 
+            font-size: 0.8rem; 
+            color: #888; 
+            text-transform: uppercase; 
+            margin-bottom: 20px;
+        }
+        
+        .nombre {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            color: var(--texto);
+            margin: 10px 0;
+            font-style: italic;
+        }
+
+        .xv {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            letter-spacing: 4px;
+            color: var(--dorado);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .frase {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: #777;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        /* Bloque de Información */
+        .datos {
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 30px 0;
+            margin: 30px 0;
+        }
+
+        .datos p { margin: 10px 0; font-size: 1.1rem; color: #555; }
+        .salon { font-weight: 600; color: #222; font-size: 1.3rem; display: block; margin-top: 5px; }
+
+        /* Contador */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .time-box { text-align: center; min-width: 60px; }
+        .time-box span { display: block; font-size: 1.8rem; font-weight: 300; color: var(--texto); }
+        .time-box label { font-size: 0.6rem; text-transform: uppercase; color: var(--dorado); letter-spacing: 1px; }
+
+        /* Mapa e Interacción */
+        .map-wrapper {
+            margin: 30px 0;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            height: 250px;
+            border: 1px solid #eee;
+        }
+        iframe { width: 100%; height: 100%; border: 0; }
+
+        .btn {
+            display: block;
+            text-decoration: none;
+            padding: 18px;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.4s;
+        }
+        .btn-rsvp {
+            background-color: var(--texto);
+            color: white;
+        }
+        .btn-mapa {
+            background-color: white;
+            color: var(--dorado);
+            border: 1px solid var(--dorado);
+        }
+        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
+
+        @media (max-width: 480px) {
+            .nombre { font-size: 3.5rem; }
+            .invitacion { padding: 60px 20px; }
+        }
+        /* Estilos para los botones de personas */
+.asistencia-container {
+    margin-top: 20px;
+}
+
+.asistencia-label {
+    font-size: 0.8rem;
+    color: var(--dorado);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.btn-num {
+    background-color: var(--texto);
+    color: white;
+    text-decoration: none;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 600;
+    transition: 0.3s;
+    border: 1px solid var(--texto);
+}
+
+.btn-num:hover {
+    background-color: transparent;
+    color: var(--texto);
+    transform: scale(1.1);
+}
+    </style>
+</head>
+<body>
+
+    <div class="invitacion">
+        <div class="inner-border"></div>
+        
+        <img src="flores.png" class="flor flor-top" alt="decoracion">
+        <img src="flores.png" class="flor flor-bottom" alt="decoracion">
+
+        <div class="contenido">
+            <h1>Te invito a mis</h1>
+            <span class="xv">XV AÑOS</span>
+            <div class="nombre">Vanessa</div>
+            
+            <p class="frase">"Hay momentos en la vida que son especiales,<br>pero compartirlos con ustedes los hace inolvidables."</p>
+            <p class="frase">Mi mamá Carolina Nestor<br>Mis padrinos Diego Nestor & Abigail Flores</p>
+
+        
+            <div class="countdown" id="timer">
+                <div class="time-box"><span id="days">00</span><label>Días</label></div>
+                <div class="time-box"><span id="hours">00</span><label>Hrs</label></div>
+                <div class="time-box"><span id="minutes">00</span><label>Min</label></div>
+                <div class="time-box"><span id="seconds">00</span><label>Seg</label></div>
+            </div>
+
+            <div class="datos">
+                <p>📅 Sábado, 13 de Junio de 2026</p>
+                <p>⏰ 5:00 PM</p>
+                <p>📍 Salón de Eventos:<br><span class="salon">La Casa Grande</span></p>
+            </div>
+
+            <div class="map-wrapper">
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.9707053410407!2d-99.29696692580913!3d19.32707744404438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cdf8a6cddc0741%3A0x3f57867fea4fbbaa!2sSal%C3%B3n%20de%20eventos%20La%20Casa%20Grande!5e0!3m2!1ses!2sus!4v1776122617871!5m2!1ses!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <a href="https://maps.google.com/?q=La+Casa+Grande+Salon+Eventos" target="_blank" class="btn btn-mapa">📍 Cómo llegar</a>
+       <div class="asistencia-container">
+    <span class="asistencia-label">Confirmar asistencia (N° de personas)</span>
+    <div class="btn-group">
+        <a href="https://wa.me/525527516064?text=¡Hola! Confirmo mi asistencia a los XV de Vanessa. Seremos 1 persona." target="_blank" class="btn-num">1</a>
+        <a href="https://wa.me/525527516064?text=¡Hola! Confirmo mi asistencia a los XV de Vanessa. Seremos 2 personas." target="_blank" class="btn-num">2</a>
+        <a href="https://wa.me/525527516064?text=¡Hola! Confirmo mi asistencia a los XV de Vanessa. Seremos 3 personas." target="_blank" class="btn-num">3</a>
+        <a href="https://wa.me/525527516064?text=¡Hola! Confirmo mi asistencia a los XV de Vanessa. Seremos 4 personas." target="_blank" class="btn-num">4</a>
+    </div>
+</div>
+        </div>
+    </div>
+
+    <script>
+        const targetDate = new Date("June 13, 2026 16:00:00").getTime();
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = d < 10 ? '0'+d : d;
+            document.getElementById("hours").innerHTML = h < 10 ? '0'+h : h;
+            document.getElementById("minutes").innerHTML = m < 10 ? '0'+m : m;
+            document.getElementById("seconds").innerHTML = s < 10 ? '0'+s : s;
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    </script>
+</body>
+</html>
